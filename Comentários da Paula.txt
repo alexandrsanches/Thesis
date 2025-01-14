@@ -1,0 +1,37 @@
+Comentários da Paula:
+
+Sentiu falta na introdução de uma explicação melhor da metodologia proposta (qual é a novidade)
+Fazer revisão de literatura de trabalhos que defendem que a dinâmica da inflação é melhor explicada a um nível setorial
+Faltou explicar um pouco melhor a metodologia em relação aos outros trabalhos, qual é a novidade
+Fazer uma motivação melhor do porquê usar essa metodologia
+Ver outros papers que não sejam working papers (usar como base papers publicados)
+Usar paper que decompõe inflação de demanda e oferta
+Não usar papers que não foram citados ao longo do texto
+
+Fazer revisão de literatura
+Fazer motivação: entender melhor a importância da metodologia proposta
+Descrever objetivos
+
+Primeira coisa da proposta de um projeto de pesquisa:
+1. Problemática: necessidade e importância de ter uma metodologia que me permita obter previsões da inflação em tempo real.
+2. Fazer levantamento de literatura:
+	2.1 Dar uma olhada em resumo, metodologia
+	2.2 Criar uma pasta compartilhada com os papers pra ir vendo com a Paula o que faz sentido ou não
+	2.3 Fazer fichamento:
+		2.3.1 Qual era o objetivo principal?
+		2.3.2 Qual foi a metodologia utilizada?
+		2.3.3 Quais foram os dados e o período analisado?
+		2.3.4 Quais foram os resultados mais importantes?
+		2.3.5 Fazer isso para todos os papers que vão para minha revisão.
+		2.3.6 Colocar na revisão um resumo mais sucinto ainda
+	2.4 Delinear melhor quais são os objetivos 
+
+
+
+Estrutura de pastas:
+- Papers
+- Data
+- Models
+- Results
+- Thesis (.tex)
+- Misc
