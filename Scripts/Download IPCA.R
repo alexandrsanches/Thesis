@@ -12,18 +12,27 @@ ftp_content <- GET(url_ftp) |>
   html_attr("href") |>
   (\(x) x[grepl("^[^http].*/$|\\.zip$", x)][-1])()
 
+# Download files outside any folder
+current_year <- ftp_content |>
+  (\(x) sub(".*_(\\d{4}).*", "\\1", x[grepl("\\.zip$", x)][-1]))() |>
+  unique()
+
 # Check all available years and download zip
-years <- gsub("/", "", ftp_content[grepl("^.*/$", ftp_content)])
+years <- c(gsub("/", "", ftp_content[grepl("^.*/$", ftp_content)]), current_year)
 
 for (year in years) {
   # Create folder for the year if it doesn't exist
-  dir_name <- paste0("Dados/", as.character(year))
+  dir_name <- paste0("Data/", as.character(year))
   if (!dir.exists(dir_name)) {
     dir.create(dir_name)
   }
   
   # Get list of files for the current year
-  dir_url <- paste0(url_ftp, year, "/")
+  dir_url <- if (year == current_year) {
+    url_ftp
+  } else {
+    paste0(url_ftp, year, "/")
+  }
   
   file_links <- GET(dir_url) |> 
     content(as = "text") |> 
@@ -34,7 +43,12 @@ for (year in years) {
   
   # Download each file
   for (file in file_links) {
-    file_url <- paste0(url_ftp, year, "/", file)
+    file_url <- if (year == current_year) {
+      paste0(url_ftp, file)
+    } else {
+      paste0(url_ftp, year, "/", file)
+    }
+    
     dest_path <- file.path(dir_name, file)
     
     # Download the file
@@ -47,7 +61,7 @@ for (year in years) {
 }
 
 # Unzip files
-year_folders <- dir("Dados", full.names = TRUE)
+year_folders <- dir("Data", full.names = TRUE)
 
 for (year_folder in year_folders) {
   if (dir.exists(year_folder)) {
