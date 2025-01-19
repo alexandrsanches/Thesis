@@ -17,7 +17,7 @@ years <- gsub("/", "", ftp_content[grepl("^.*/$", ftp_content)])
 
 for (year in years) {
   # Create folder for the year if it doesn't exist
-  dir_name <- paste0("Data/", as.character(year))
+  dir_name <- paste0("Dados/", as.character(year))
   if (!dir.exists(dir_name)) {
     dir.create(dir_name)
   }
@@ -47,7 +47,7 @@ for (year in years) {
 }
 
 # Unzip files
-year_folders <- dir("Data", full.names = TRUE)
+year_folders <- dir("Dados", full.names = TRUE)
 
 for (year_folder in year_folders) {
   if (dir.exists(year_folder)) {
